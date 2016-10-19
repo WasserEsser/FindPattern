@@ -2,7 +2,6 @@
 #include <cstdint>
 #include <string>
 #include <vector>
-#include <chrono>
 #include <Windows.h>
 
 // Returns the base address of a specified module ( exe/dll )
