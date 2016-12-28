@@ -50,7 +50,7 @@ public:
 	T FindPattern( const std::vector< uint16_t >& Pattern_ ) const
 	{
 		for ( auto Data = m_ModuleBase; Data <= ( m_ModuleBase + m_ModuleSize ) - Pattern_.size( ); ++Data )
-			if ( [ & ]( )
+			if ( [ ]( const std::vector< uint16_t >& Pattern_, const uint8_t* Data  )
 			{
 				for ( auto i = 0u; i < Pattern_.size( ); ++i )
 				{
@@ -58,8 +58,8 @@ public:
 						if ( Pattern_[ i ] != 256u ) return false;
 				}
 				return true;
-			}( ) ) return reinterpret_cast< T >( Data );
-			return nullptr;
+			}( Pattern_, Data  ) ) return reinterpret_cast< T >( Data );
+		return nullptr;
 	}
 
 	template< typename T >
